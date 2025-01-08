@@ -1,51 +1,30 @@
 import React from 'react';
+import axios from 'axios';
 
 // React.Component 클래스의 기능을 추가한 App 클래스
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log('hello');
-  }
-
   state = {
-    count : 0,
+    isLoading : true,
+    movie : [],
   };
 
-  add = () => {
-    this.setState(current => ({ 
-      count : current.count + 1, 
-    }));
-  };
-
-  minus = () => {
-    this.setState(current => ({ 
-      count : current.count - 1, 
-    }));
+  getMovies = async () => {
+    const {
+      data : {
+        data : { movies },
+      },
+    } = await axios.get("https://yts-proxy.now.sh/list_movies.json");
+    this.setState({ movies, isLoading : false });
   };
 
   componentDidMount() {
-    console.log('component rendered');
-  }
-
-  componentDidUpdate() {
-    console.log('I just updated');
-  }
-
-  componentWillUnmount() {
-    console.log('Goodbye, Cruel world');
+    this.getMovies();
   }
 
   render() {
-    console.log("I'm rendering");
-    return (
-      <div>
-        <h1>The number is : {this.state.count}</h1>
-        <button onClick={this.add}>Add</button>
-        <button onClick={this.minus}>Minus</button>
-      </div>
-    );
+    const { isLoading } = this.state;
+    return <div> {isLoading ? 'Loading...' : 'We are ready'} </div>;
   }
-
 }
 
 export default App;
