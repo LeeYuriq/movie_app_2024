@@ -1,23 +1,16 @@
 import React from 'react';
 import './App.css';
-import { HashRouter, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import About from './routes/About';
 import Home from './routes/Home';
 
 function App() {
   return (
     <HashRouter>
-      <Route>
-       <Route path="/">
-          <h1>Home</h1>
-       </Route>
-       <Route path="/home/introduction">
-         <h1>Introduction</h1>
-       </Route>
-       <Route path="/about">
-          <h1>About</h1>
-       </Route>
-     </Route>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
     </HashRouter>
   );
 }
