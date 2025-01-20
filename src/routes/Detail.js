@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import './Detail.css';
 
 function Detail() {
     const location = useLocation();
@@ -17,7 +18,22 @@ function Detail() {
     if (!location.state) return <span>No data available</span>;
     
      // location.state에서 전달된 데이터를 읽음
-    return <span>{location.state.title}</span>;
+    return ( 
+         // year, title, summary, poster, genres 
+        <div className="movie">
+            <img src={location.state.poster} 
+                alt={location.state.title} 
+                title={location.state.title}/>
+            <div className="movie__data">
+                <h3 className="movie__title">{location.state.title}</h3>
+                <h5 className="movie__year">{location.state.year}</h5>
+                <ul className="movie__genres">
+                    {location.state.genres}
+                </ul>
+                <p className="movie__summary">{location.state.summary.slice(0)}</p>
+            </div>
+        </div>
+    );
 }
 
 export default Detail;
