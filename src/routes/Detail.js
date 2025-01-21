@@ -20,17 +20,17 @@ function Detail() {
      // location.state에서 전달된 데이터를 읽음
     return ( 
          // year, title, summary, poster, genres 
-        <div className="movie">
+        <div className="detail">
             <img src={location.state.poster} 
                 alt={location.state.title} 
                 title={location.state.title}/>
-            <div className="movie__data">
-                <h3 className="movie__title">{location.state.title}</h3>
-                <h5 className="movie__year">{location.state.year}</h5>
-                <ul className="movie__genres">
+            <div className="detail__data">
+                <h3 className="detail__title">{location.state.title}</h3>
+                <h5 className="detail__year">{location.state.year}</h5>
+                <ul className="detail__genres">
                     {location.state.genres}
                 </ul>
-                <p className="movie__summary">{location.state.summary.slice(0)}</p>
+                <p className="detail__summary">{location.state.summary.slice(0)}</p>
             </div>
         </div>
     );
