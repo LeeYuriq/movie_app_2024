@@ -1,6 +1,6 @@
-# Movie App 2024
+# Movie App 2025
 
-React JS Fundamentals Course 2024
+React JS Fundamentals Course 2025
 
 책 2020년도꺼 참고하였음.
 
