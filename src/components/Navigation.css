@@ -38,6 +38,11 @@
         left: initial;
         top: initial;
         bottom: 0px;
-        width: 100%;
+        width: 93.5%;
+    }
+
+    body {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
     }
 }

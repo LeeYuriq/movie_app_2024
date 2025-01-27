@@ -28,3 +28,58 @@
         width: 100%;
     }
 }
+
+/* 로딩화면 css */
+.loader__dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.loader__dots span {
+    width: 10px;
+    height: 10px;
+    background-color: #9c9c9c;
+    border-radius: 50%;
+    animation: bounce 1.5s infinite;
+}
+
+.loader__dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader__dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* 화면 최상단으로 가는 버튼 */
+.scrollToTop {
+    position: fixed;
+    bottom: 5px;
+    right: 2px;
+    z-index: 1000;
+    background-color: #fff;
+    color: #9c9c9c;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+    padding: 35px 7px;
+    border-radius: 10px;
+  }
+  
+  .scrollToTop:hover {
+    background-color: #9c9c9c;
+    color: #fff;
+    transform: scale(1.1);
+  }
+  
